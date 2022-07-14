@@ -2,6 +2,7 @@ package dev.carlvs.dsmeta.domain;
 
 import java.time.LocalDate;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,6 +16,7 @@ public class Sale {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(name = "seller_name")
     private String sellerName;
     private Integer visited;
     private Integer deals;
