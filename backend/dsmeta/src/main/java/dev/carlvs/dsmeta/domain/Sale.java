@@ -8,6 +8,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+
+import io.swagger.annotations.ApiModelProperty;
 
 @Entity
 @Table(name = "tb_sales")
@@ -15,12 +18,23 @@ public class Sale {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @ApiModelProperty(notes = "Sale ID", example = "1", required = true)
     private Long id;
     @Column(name = "seller_name")
+    @NotNull(message = "The field 'sellerName' is mandatory")
+    @ApiModelProperty(notes = "Selle Name", example = "Barry Allen")
     private String sellerName;
+    @NotNull(message = "The field 'visited' is mandatory")
+    @ApiModelProperty(notes = "Number of visits", example = "121")
     private Integer visited;
+    @NotNull(message = "The field 'deals' is mandatory")
+    @ApiModelProperty(notes = "Number of solds", example = "67")
     private Integer deals;
+    @NotNull(message = "The field 'amount' is mandatory")
+    @ApiModelProperty(notes = "Total raised", example = "18196.0")
     private Double amount;
+    @NotNull(message = "The field 'date' is mandatory")
+    @ApiModelProperty(notes = "Date sold", example = "2022-06-16")
     private LocalDate date;
 
     public Sale(Long id, String sellerName, Integer visited, Integer deals, Double amount, LocalDate date) {
