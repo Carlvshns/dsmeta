@@ -22,19 +22,19 @@ public class Sale {
     private Long id;
     @Column(name = "seller_name")
     @NotNull(message = "The field 'sellerName' is mandatory")
-    @ApiModelProperty(notes = "Selle Name", example = "Barry Allen")
+    @ApiModelProperty(notes = "Selle Name", example = "Barry Allen", required = true)
     private String sellerName;
     @NotNull(message = "The field 'visited' is mandatory")
-    @ApiModelProperty(notes = "Number of visits", example = "121")
+    @ApiModelProperty(notes = "Number of visits", example = "121", required = true)
     private Integer visited;
     @NotNull(message = "The field 'deals' is mandatory")
-    @ApiModelProperty(notes = "Number of solds", example = "67")
+    @ApiModelProperty(notes = "Number of solds", example = "67", required = true)
     private Integer deals;
     @NotNull(message = "The field 'amount' is mandatory")
-    @ApiModelProperty(notes = "Total raised", example = "18196.0")
+    @ApiModelProperty(notes = "Total raised", example = "18196.0", required = true)
     private Double amount;
     @NotNull(message = "The field 'date' is mandatory")
-    @ApiModelProperty(notes = "Date sold", example = "2022-06-16")
+    @ApiModelProperty(notes = "Date sold", example = "2022-06-16", required = true)
     private LocalDate date;
 
     public Sale(Long id, String sellerName, Integer visited, Integer deals, Double amount, LocalDate date) {

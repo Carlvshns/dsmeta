@@ -26,14 +26,14 @@ public class SaleController {
 
     private SmsService smsService;
 
-    public SaleController(dev.carlvs.dsmeta.services.SaleService saleService, SmsService smsService) {
+    public SaleController(SaleService saleService, SmsService smsService) {
         this.saleService = saleService;
         this.smsService = smsService;
     }
 
     @ApiOperation(value = "List all available Sales in Page with betwen minimal and maximum Date and order by Amount desc")
     @ApiResponse(code = 200, message = "OK", response = Sale[].class)
-    @GetMapping
+    @GetMapping(produces = "application/xml")
     public ResponseEntity<Page<Sale>> findSales(@RequestParam(value = "minDate", defaultValue = "") String minDate, 
         @RequestParam(value = "maxDate", defaultValue = "") String maxDate, Pageable pageable){
         return new ResponseEntity<>(saleService.findSales(minDate, maxDate, pageable), HttpStatus.OK);
